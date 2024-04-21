@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class HelpDeskGui extends JFrame  implements ActionListener{
+public class Question extends JFrame  implements ActionListener{
     JPanel panel1;
     JLabel header;
     JLabel namelabel;
@@ -11,20 +11,23 @@ public class HelpDeskGui extends JFrame  implements ActionListener{
     JLabel passLabel;
     JLabel ticketLabel;
     JTextField name;
-    JTextField usertype;
-    JTextField password;
-    JTextField ticket;
-    JButton submit;
-    JButton clear;
+    JTextField emailiField;
+    JTextField questioField;
 
-    HelpDeskGui(){
+    JButton Ticketraised;
+    JButton clear;
+    public static void main(String[] args) {
+        new Question();
+    }
+
+    Question(){
         this.setSize(500,500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setResizable(false);
         this.setTitle("HELP DESK");
         this.getContentPane().setBackground(Color.BLACK);
-        setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
 
         panel1=new JPanel();
         panel1.setPreferredSize(new Dimension(500,500));
@@ -49,33 +52,29 @@ public class HelpDeskGui extends JFrame  implements ActionListener{
 
 
         name=new JTextField();
-        usertype=new JTextField();
-        password=new JTextField();
-        ticket=new JTextField();
-        submit=new JButton("Submit");
+        emailiField=new JTextField();
+        questioField=new JTextField();
+        Ticketraised=new JButton("Raise Ticket");
     
         name.setSize(350,50);
         name.setBounds(50,100,350,35);
       
       
-        usertype.setSize(350,50);
-        usertype.setBounds(50,175,350,35);
+        emailiField.setSize(350,50);
+        emailiField.setBounds(50,175,350,35);
       
       
-        password.setSize(350,50);
-        password.setBounds(50,250,350,35);
-      
-      
-        ticket.setSize(350,50);
-        ticket.setBounds(50,325,350,35);
+        questioField.setSize(350,50);
+        questioField.setBounds(50,250,350,35);
       
       
       
-        submit.setSize(100,50);
-        submit.setBounds(350,375,100,50);
-        submit.setFocusable(false);
-        submit.addActionListener(this);
-        submit.setBorder(BorderFactory.createLineBorder(Color.black));
+      
+        Ticketraised.setSize(100,50);
+        Ticketraised.setBounds(350,375,100,50);
+        Ticketraised.setFocusable(false);
+        Ticketraised.addActionListener(this);
+        Ticketraised.setBorder(BorderFactory.createLineBorder(Color.black));
       
       
       
@@ -98,60 +97,41 @@ public class HelpDeskGui extends JFrame  implements ActionListener{
         
         usertypelabel=new JLabel();
         usertypelabel.setSize(350,25);
-        usertypelabel.setText("UserType");
+        usertypelabel.setText("Email ID");
         usertypelabel.setBounds(50,150,350,25);
         usertypelabel.setVerticalAlignment(JLabel.TOP);
         usertypelabel.setFont(new Font("ROBOTO",Font.BOLD,15));
 
         passLabel=new JLabel();
-        passLabel.setText("Password");
+        passLabel.setText("Enter your Question");
         passLabel.setSize(350,25);
         passLabel.setBounds(50,225,350,25);
         passLabel.setVerticalAlignment(JLabel.TOP);
         passLabel.setFont(new Font("ROBOTO",Font.BOLD,15));
 
-
-        ticketLabel=new JLabel();
-        ticketLabel.setText("Ticket Number");
-        ticketLabel.setSize(350,25);
-        ticketLabel.setBounds(50,300,350,25);
-        ticketLabel.setVerticalAlignment(JLabel.TOP);
-        ticketLabel.setFont(new Font("ROBOTO",Font.BOLD,15));
-
-        panel1.add(ticketLabel);
         panel1.add(passLabel);
         panel1.add(usertypelabel);
         panel1.add(namelabel);
         panel1.add(clear);
-        panel1.add(submit);
+        panel1.add(Ticketraised);
         panel1.add(name);
-        panel1.add(usertype);
-        panel1.add(password);
-        panel1.add(ticket);
+        panel1.add(emailiField);
+        panel1.add(questioField);
         this.add(panel1);
         this.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       if (e.getSource()==submit) {
-        String Name= name.getText();
-        String User=usertype.getText();
-        String Password=password.getText();
-        String Ticket=ticket.getText();
-        System.out.println(Name);
-        System.out.println(User);
-        System.out.println(Password);
-        System.out.println(Ticket);
-        this.dispose();
-        new helpdeskmain();
+       if (e.getSource()==Ticketraised) {
+        new userdatabase(name.getText(),emailiField.getText(), questioField.getText());
+        // this.dispose();
        }
        if (e.getSource()==clear) {
         System.out.println("clearing");
         name.setText("");
-        usertype.setText("");
-        password.setText("");
-        ticket.setText("");
+        emailiField.setText("");
+        questioField.setText("");
        }
     }
 }
