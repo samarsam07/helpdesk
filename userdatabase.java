@@ -24,14 +24,14 @@ public class userdatabase {
         //Statement stmt = con.createStatement();
         pdst.executeUpdate();
         // option=new JOptionPane();
-        JOptionPane.showConfirmDialog(null, "Done","?", JOptionPane.OK_OPTION);
+        JOptionPane.showConfirmDialog(null, "Done","?", JOptionPane.PLAIN_MESSAGE);
         // option.showMessageDialog(null,"Done","helpdesk",JOptionPane.OK_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE);
         // System.out.println("done");
         con.close();
         
 
         }catch(Exception e){
-            JOptionPane.showConfirmDialog(null, "Error","", JOptionPane.OK_OPTION);
+            JOptionPane.showConfirmDialog(null, "Error","", JOptionPane.PLAIN_MESSAGE);
         }
     }
 }

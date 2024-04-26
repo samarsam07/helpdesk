@@ -19,7 +19,7 @@ protected char[] passString;
 
     adminlogin(){
         this.setSize(500,500);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setResizable(false);
         this.setTitle("HELP DESK");
@@ -109,7 +109,7 @@ protected char[] passString;
             }
         }
     }catch (Exception e){
-        JOptionPane.showMessageDialog(null, "invalid input","error",JOptionPane.OK_OPTION );
+        JOptionPane.showMessageDialog(null, "invalid input","error",JOptionPane.PLAIN_MESSAGE );
         return false;
     }
         return true;

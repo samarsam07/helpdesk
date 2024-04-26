@@ -91,7 +91,7 @@ public class addanswer extends JFrame implements ActionListener {
 
         st.executeUpdate();
 
-        JOptionPane.showMessageDialog(null, "DONE", "DONE",JOptionPane.OK_OPTION);
+        JOptionPane.showConfirmDialog(null, "DONE", "DONE",JOptionPane.PLAIN_MESSAGE);
         con.close();
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, e, "error",JOptionPane.OK_OPTION);

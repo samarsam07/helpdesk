@@ -70,10 +70,7 @@ Getanswer(){
 
     ansJLabel=new JLabel();
     ansJLabel.setSize(400,200);
-    // ansJLabel.setBounds(25,250,400,200);
-    // ansJLabel.setBorder(BorderFactory.createLineBorder(Color.black));
     ansJLabel.setVerticalAlignment(JLabel.TOP);
-    // ansJLabel.setBackground(Color.BLACK);
     // ansJLabel.setOpaque(true);
     // ansJLabel.add(jt);
     panelJPanel.add(label1);
@@ -118,7 +115,7 @@ String answer(){
         }
         con.close();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, e,"", JOptionPane.CANCEL_OPTION);
+      JOptionPane.showMessageDialog(null, e,"", JOptionPane.PLAIN_MESSAGE);
     }
     return value;
 }
